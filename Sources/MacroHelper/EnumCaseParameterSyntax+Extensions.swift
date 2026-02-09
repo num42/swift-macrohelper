@@ -1,8 +1,8 @@
 internal import Foundation
 public import SwiftSyntax
 
-public extension EnumCaseParameterSyntax {
-  var typeString: String {
+extension EnumCaseParameterSyntax {
+  public var typeString: String {
     let wrappedType = type.as(OptionalTypeSyntax.self)?.wrappedType
     let isOptional = wrappedType != nil
 

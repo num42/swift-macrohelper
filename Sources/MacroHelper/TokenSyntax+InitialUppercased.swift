@@ -1,8 +1,8 @@
 internal import Foundation
 public import SwiftSyntax
 
-public extension TokenSyntax {
-  var initialUppercased: String {
+extension TokenSyntax {
+  public var initialUppercased: String {
     let name = text
     guard let initial = name.first else {
       return name

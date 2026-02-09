@@ -1,12 +1,12 @@
 internal import Foundation
 public import SwiftSyntax
 
-public extension EnumCaseElementSyntax {
-  var hasAssociatedValues: Bool {
+extension EnumCaseElementSyntax {
+  public var hasAssociatedValues: Bool {
     !associatedValues.isEmpty
   }
 
-  var associatedValues: [EnumCaseParameterSyntax] {
+  public var associatedValues: [EnumCaseParameterSyntax] {
     guard let parameterList = parameterClause?.parameters else {
       return []
     }

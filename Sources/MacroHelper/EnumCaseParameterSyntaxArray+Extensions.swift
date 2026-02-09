@@ -1,7 +1,7 @@
 internal import Foundation
 public import SwiftSyntax
 
-public extension [EnumCaseParameterSyntax] {
+extension [EnumCaseParameterSyntax] {
   private func parameterName(for index: Int) -> String {
     if let name = self[index].firstName?.text {
       return name
@@ -15,7 +15,7 @@ public extension [EnumCaseParameterSyntax] {
     return "value\(index)"
   }
 
-  var asTypedTuple: String {
+  public var asTypedTuple: String {
     if count <= 1 {
       return self[0].typeString
     }
@@ -31,7 +31,7 @@ public extension [EnumCaseParameterSyntax] {
     return "(\(parameters.joined(separator: ", ")))"
   }
 
-  var asParameters: String {
+  public var asParameters: String {
     if count <= 1 {
       return parameterName(for: 0)
     }
@@ -40,7 +40,7 @@ public extension [EnumCaseParameterSyntax] {
     return parameters.joined(separator: ", ")
   }
 
-  var asUntypedList: String {
+  public var asUntypedList: String {
     if count <= 1 {
       return parameterName(for: 0)
     }
