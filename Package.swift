@@ -1,0 +1,29 @@
+// swift-tools-version:6.2
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+internal import PackageDescription
+
+let name = "MacroHelper"
+
+let package = Package(
+  name: name,
+  platforms: [.macOS(.v13), .iOS(.v13), .tvOS(.v13), .watchOS(.v6), .macCatalyst(.v13)],
+  products: [
+    .library(
+      name: name,
+      targets: [name]
+    )
+  ],
+  dependencies: [
+    .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "602.0.0")
+  ],
+  targets: [
+    .target(
+      name: name,
+      dependencies: [
+        .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
+        .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
+      ]
+    )
+  ]
+)
