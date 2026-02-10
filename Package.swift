@@ -21,7 +21,6 @@ let package = Package(
     .target(
       name: name,
       dependencies: [
-        .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
         .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
       ]
     )
